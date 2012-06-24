@@ -67,11 +67,9 @@ namespace Sep.Git.Tfs.Commands
             if(!Directory.Exists(globals.GitDir))
             {
                 gitHelper.CommandNoisy(BuildInitCommand());
+                globals.Repository = gitHelper.MakeRepository(".git");
             }
-
-			if (globals.Repository == null)
-				globals.Repository = gitHelper.MakeRepository(".git");
-		}
+        }
 
         private string[] BuildInitCommand()
         {
